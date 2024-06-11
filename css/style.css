@@ -1726,7 +1726,7 @@ img {
 }
 .widget-contact-list ul li a {
     color: #627279;
-    text-transform: capitalize;
+    text-transform: ;
     line-height: 39px;
 }
 .widget-contact-list ul li a:hover {
