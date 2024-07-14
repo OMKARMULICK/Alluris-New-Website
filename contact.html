@@ -180,7 +180,7 @@
               </div>
             </div>
             <div class="col-md-8 input_form">
-              <form id="contactForm" action="http://galaxyanalytics.net/demos/industrial/contact_process.php" method="post">
+              <form id="contactForm" action="https://script.google.com/macros/s/AKfycbyZyMm8c8rMW-qfiGk3OB39L8Zgy1nd3AwwB2QGBdBPYSwty5os1NHDZV1YwiEpWpsp5Q/exec" name="contactForm" method="post">
                 <input id="name" type="text" name="name" placeholder="Full Name" class="form-control">
                 <input id="email" type="email" name="email" placeholder="Email" class="form-control">
                 <input id="phone" type="text" name="phone" placeholder="Phone" class="form-control">
@@ -193,7 +193,7 @@
                 <p>Your message sent successfully.</p>
               </div>
               <div id="error">
-                <p>Something is wrong. Message cant be sent!</p>
+               
               </div>
             </div>
           </div>
@@ -297,6 +297,18 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTI1BZJKFCeJ8g9O01CMZ4QvVCfdPYkrE"></script>
     <script src="js/gmaps.min.js"></script>
     <script src="js/theme.js"></script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyZyMm8c8rMW-qfiGk3OB39L8Zgy1nd3AwwB2QGBdBPYSwty5os1NHDZV1YwiEpWpsp5Q/exec'
+      const form = document.forms['contactForm']
+      
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thank you! your form is submitted successfully." ))
+        .then(() => {  window.location.reload(); })
+        .catch(error => console.error('Error!', error.message))
+      })
+       </script>
   </body>
 
 </html>
